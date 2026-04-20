@@ -192,7 +192,7 @@ Get-FileHash -Algorithm MD5 .\sdcard-lpi4a-20250123_195216.img.zst
 :::warning
 **关于 USB-A 转 USB Type-C 数据线的选用**
 
-写入镜像时一定要选用支持充电和 5Gbps-10Gbps 数据传输功能的优质数据线；不能用只能充电或者数据传输速度极慢的廉价数据线。
+写入镜像时一定要选用支持充电和 USB 3.0/3.1 Gen1 5Gbps 或以上数据传输的优质数据线；不能用只能充电或者数据传输速度极慢的廉价数据线。
 :::
 
 ## 从 eMMC 启动
@@ -321,8 +321,8 @@ LicheePi4A 不同的内存版本的 uboot 文件不通用，可参照下表根�
 开发板重启后，计算机可能再次检测到一个名为`USB download gadget`的未知设备。请按照上面的驱动安装教程重新为该设备安装驱动后继续下面的步骤。
 
 ```powershell
-#确保驱动工作正常，而且设备没有掉线（应当输出一行信息代表有一个设备已经连接）
-.\fastboot.exe devices
+# 确保驱动工作正常，而且设备没有掉线
+.\fastboot.exe devices # 预期输出: <序列号> fastboot
 # 以下三行替换为您的板卡规格对应的 uboot boot root 文件的路径，可在资源管理器中将文件拖放到终端以快捷输入文件的路径
 .\fastboot.exe flash uboot u-boot-with-spl-lpi4a-16g.bin
 .\fastboot.exe flash boot boot-lpi4a-20240720_171951.ext4
